@@ -1,65 +1,61 @@
-name: Bug Report
-description: File a bug report to help us improve
-title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees: []
+name: "Bug Report"
+description: "Create a report to help us improve. Something is broken or not working as expected."
+title: "[BUG] - "
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
+        Thank you for taking the time to fill out this bug report. Please be as detailed as possible.
+
+  - type: dropdown
+    id: component
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: "Affected Component"
+      description: "Which part of the ScoutX platform is this bug in?"
+      multiple: false
+      options:
+        - "Backend / API"
+        - "ScoutX Dashboard (Players, Parents, Coaches)"
+        - "ScoutX Pro Dashboard (Pro Admins)"
+        - "ScoutX Flutter App (Players, Academies)"
+        - "ScoutX Pro Flutter App (Scouts)"
     validations:
       required: true
-  - type: dropdown
-    id: version
+
+  - type: textarea
+    id: description
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.0 (Default)
-        - 1.0.1
-        - 1.1.0
-        - 1.2.0
-        - Other (please specify in description)
+      label: "Bug Description"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "When I click the 'Save Profile' button, the page crashes."
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
-        - Other
+
   - type: textarea
-    id: logs
+    id: steps-to-reproduce
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
+      label: "Steps to Reproduce"
+      description: "Please provide the exact steps to reproduce this bug."
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: "Expected Behavior"
+      description: "A clear and concise description of what you expected to happen."
+      placeholder: "The profile should save successfully and I should see a confirmation message."
+    validations:
+      required: true
+
+  - type: textarea
+    id: media
+    attributes:
+      label: "Screenshots or Videos"
+      description: "If applicable, please add screenshots or a screen recording (Loom, etc.) to help explain your problem. You can drag and drop files here."

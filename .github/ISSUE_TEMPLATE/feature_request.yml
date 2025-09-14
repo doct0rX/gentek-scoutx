@@ -1,83 +1,54 @@
-name: Feature Request
-description: Suggest an idea for this project
-title: "[Feature]: "
-labels: ["enhancement", "feature-request"]
-assignees: []
+name: "Feature Request"
+description: "Suggest an idea for a new feature or an enhancement to an existing one."
+title: "[FEAT] - "
+labels: ["feature-request"]
 body:
   - type: markdown
     attributes:
-      value: |
-        Thanks for taking the time to suggest a new feature!
-  - type: input
-    id: contact
+      value: "Thank you for suggesting a new feature! Please provide as much context as possible."
+
+  - type: dropdown
+    id: component
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: textarea
-    id: problem
-    attributes:
-      label: Is your feature request related to a problem? Please describe.
-      description: A clear and concise description of what the problem is.
-      placeholder: I'm always frustrated when...
+      label: "Related Component"
+      description: "Which part of the ScoutX platform would this feature affect?"
+      multiple: false
+      options:
+        - "Backend / API"
+        - "ScoutX Dashboard (Players, Parents, Coaches)"
+        - "ScoutX Pro Dashboard (Pro Admins)"
+        - "ScoutX Flutter App (Players, Academies)"
+        - "ScoutX Pro Flutter App (Scouts)"
     validations:
       required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: "Is your feature request related to a problem? Please describe."
+      description: "A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]"
+      placeholder: "It's difficult for coaches to see a summary of a player's recent activity at a glance."
+    validations:
+      required: true
+
   - type: textarea
     id: solution
     attributes:
-      label: Describe the solution you'd like
-      description: A clear and concise description of what you want to happen.
-      placeholder: I would like...
+      label: "Describe the solution you'd like"
+      description: "A clear and concise description of what you want to happen."
+      placeholder: "I'd like a new 'Activity Summary' widget on the player profile page that shows their last 5 logged activities."
     validations:
       required: true
+
   - type: textarea
-    id: alternatives
+    id: audience
     attributes:
-      label: Describe alternatives you've considered
-      description: A clear and concise description of any alternative solutions or features you've considered.
-      placeholder: Alternative approaches could be...
-    validations:
-      required: false
-  - type: dropdown
-    id: priority
-    attributes:
-      label: Priority Level
-      description: How important is this feature to you?
-      options:
-        - Low - Nice to have
-        - Medium - Would improve workflow
-        - High - Critical for project success
-    validations:
-      required: true
-  - type: dropdown
-    id: category
-    attributes:
-      label: Feature Category
-      description: What category does this feature fall under?
-      options:
-        - User Interface
-        - Performance
-        - Integration
-        - Security
-        - Documentation
-        - Other
-    validations:
-      required: true
+      label: "Who is this for?"
+      description: "Who are the primary users that would benefit from this feature?"
+      placeholder: "e.g., Coaches, Pro Admins, Players"
+
   - type: textarea
-    id: additional-context
+    id: context
     attributes:
-      label: Additional context
-      description: Add any other context, screenshots, or examples about the feature request here.
-      placeholder: Additional details...
-    validations:
-      required: false
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: "Additional context"
+      description: "Add any other context, mockups, or links about the feature request here. You can drag and drop images."
